@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Wyszukiwarka Bibliografii</title>
+</head>
+<body>
+    <h2>Wyszukaj publikacje według roku</h2>
+    <label for="year">Rok publikacji:</label>
+    <input type="text" id="year" name="year">
+    <button onclick="searchByYear()">Szukaj</button>
+
+    <h3>Wyniki:</h3>
+    <ul id="results"></ul>
+
+    <script>
+        async function searchByYear() {
+            const year = document.getElementById('year').value;
+            const response = await fetch('https://ainglot.pl/api/search', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ year: year })
+            });
+            const data = await response.json();
+            
+            // Wyświetlanie wyników
+            const results = document.getElementById('results');
+            results.innerHTML = '';  // Wyczyść wyniki
+            data.forEach(entry => {
+                const li = document.createElement('li');
+                li.innerText = `${entry.title} - ${entry.author} (${entry.year})`;
+                results.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
