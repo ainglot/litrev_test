@@ -1,4 +1,5 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "api/search.py",
@@ -9,7 +10,7 @@
     {
       "src": "/api/search",
       "methods": ["POST"],
-      "dest": "api/search.py"
+      "dest": "/api/search.py"
     }
   ]
 }
