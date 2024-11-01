@@ -1,16 +1,4 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "api/search.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/search",
-      "methods": ["POST"],
-      "dest": "/api/search.py"
-    }
-  ]
+  "source": "/feedback/(?!general)",
+  "destination": "/api/feedback/general"
 }
