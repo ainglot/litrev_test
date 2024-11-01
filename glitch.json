@@ -1,4 +1,4 @@
 {
-    "start": "bash start.sh"
-  }
-  
+  "start": "python api/search.py",
+  "install": "pip install -r requirements.txt"
+}
