@@ -21,7 +21,7 @@ def search():
 
         # Połączenie z bazą danych SQLite i wykonanie zapytania
         try:
-            conn = sqlite3.connect(r'/app/api/test_241031115708.db')  # Użyj swojej bazy danych
+            conn = sqlite3.connect(r'/app/api/test.db')  # Użyj swojej bazy danych
             cursor = conn.cursor()
             cursor.execute('SELECT id, title, author, year FROM Bibliografia WHERE year = ?', (year,))
             rows = cursor.fetchall()  # Assign rows here
